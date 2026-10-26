@@ -20,7 +20,7 @@ var _ MappedNullable = &SNMPV3Credentials{}
 // SNMPV3Credentials SNMP v3  Credential Settings.
 type SNMPV3Credentials struct {
 	Creds                *KeyStoreCredential `json:"creds,omitempty"`
-	Priority             *int32              `json:"priority,omitempty"`
+	Priority             *int64              `json:"priority,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,9 +76,9 @@ func (o *SNMPV3Credentials) SetCreds(v KeyStoreCredential) {
 }
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
-func (o *SNMPV3Credentials) GetPriority() int32 {
+func (o *SNMPV3Credentials) GetPriority() int64 {
 	if o == nil || IsNil(o.Priority) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Priority
@@ -86,7 +86,7 @@ func (o *SNMPV3Credentials) GetPriority() int32 {
 
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SNMPV3Credentials) GetPriorityOk() (*int32, bool) {
+func (o *SNMPV3Credentials) GetPriorityOk() (*int64, bool) {
 	if o == nil || IsNil(o.Priority) {
 		return nil, false
 	}
@@ -102,8 +102,8 @@ func (o *SNMPV3Credentials) HasPriority() bool {
 	return false
 }
 
-// SetPriority gets a reference to the given int32 and assigns it to the Priority field.
-func (o *SNMPV3Credentials) SetPriority(v int32) {
+// SetPriority gets a reference to the given int64 and assigns it to the Priority field.
+func (o *SNMPV3Credentials) SetPriority(v int64) {
 	o.Priority = &v
 }
 

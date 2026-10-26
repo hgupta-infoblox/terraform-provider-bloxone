@@ -19,11 +19,11 @@ var _ MappedNullable = &ScheduleTime{}
 
 // ScheduleTime Time Schedule Item. Message holds a recurring time point or period (if duration > 0), The way of its definition is dictated by XML types ScheduleWeekly, ScheduleMonthly, ScheduleDaily, ScheduleHourly, and ScheduleOnce of the NI configuration schema, which are used to schedule pollings, discovery blackout or port control blackout periods in NI.
 type ScheduleTime struct {
-	Dom                  *int32  `json:"dom,omitempty"`
+	Dom                  *int64  `json:"dom,omitempty"`
 	Dow                  *string `json:"dow,omitempty"`
 	Duration             *string `json:"duration,omitempty"`
 	Enabled              *bool   `json:"enabled,omitempty"`
-	Every                *int32  `json:"every,omitempty"`
+	Every                *int64  `json:"every,omitempty"`
 	Time                 *string `json:"time,omitempty"`
 	Type                 *string `json:"type,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -49,9 +49,9 @@ func NewScheduleTimeWithDefaults() *ScheduleTime {
 }
 
 // GetDom returns the Dom field value if set, zero value otherwise.
-func (o *ScheduleTime) GetDom() int32 {
+func (o *ScheduleTime) GetDom() int64 {
 	if o == nil || IsNil(o.Dom) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Dom
@@ -59,7 +59,7 @@ func (o *ScheduleTime) GetDom() int32 {
 
 // GetDomOk returns a tuple with the Dom field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ScheduleTime) GetDomOk() (*int32, bool) {
+func (o *ScheduleTime) GetDomOk() (*int64, bool) {
 	if o == nil || IsNil(o.Dom) {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *ScheduleTime) HasDom() bool {
 	return false
 }
 
-// SetDom gets a reference to the given int32 and assigns it to the Dom field.
-func (o *ScheduleTime) SetDom(v int32) {
+// SetDom gets a reference to the given int64 and assigns it to the Dom field.
+func (o *ScheduleTime) SetDom(v int64) {
 	o.Dom = &v
 }
 
@@ -177,9 +177,9 @@ func (o *ScheduleTime) SetEnabled(v bool) {
 }
 
 // GetEvery returns the Every field value if set, zero value otherwise.
-func (o *ScheduleTime) GetEvery() int32 {
+func (o *ScheduleTime) GetEvery() int64 {
 	if o == nil || IsNil(o.Every) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Every
@@ -187,7 +187,7 @@ func (o *ScheduleTime) GetEvery() int32 {
 
 // GetEveryOk returns a tuple with the Every field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ScheduleTime) GetEveryOk() (*int32, bool) {
+func (o *ScheduleTime) GetEveryOk() (*int64, bool) {
 	if o == nil || IsNil(o.Every) {
 		return nil, false
 	}
@@ -203,8 +203,8 @@ func (o *ScheduleTime) HasEvery() bool {
 	return false
 }
 
-// SetEvery gets a reference to the given int32 and assigns it to the Every field.
-func (o *ScheduleTime) SetEvery(v int32) {
+// SetEvery gets a reference to the given int64 and assigns it to the Every field.
+func (o *ScheduleTime) SetEvery(v int64) {
 	o.Every = &v
 }
 

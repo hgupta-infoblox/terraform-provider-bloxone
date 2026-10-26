@@ -1,7 +1,7 @@
 /*
 Discovery Controller API
 
-Discovery Controller manages discovery configuration for multiple source types: NIOS Grid Connector (NGC), Active Discovery (NMAP), Network Insight (NI), Passive Discovery, and Cloud Discovery. All data is tenant-scoped by account_id. 
+Discovery Controller manages discovery configuration for multiple source types: NIOS Grid Connector (NGC), Active Discovery (NMAP), Network Insight (NI), Passive Discovery, and Cloud Discovery. All data is tenant-scoped by account_id.
 
 API version: v1
 */
@@ -23,13 +23,13 @@ type APIClient struct {
 	*internal.APIClient
 
 	// API Services
-	ConfigurationServiceAPI ConfigurationServiceAPI
-	DiscoveryConfigServiceAPI DiscoveryConfigServiceAPI
-	JobConfigServiceAPI JobConfigServiceAPI
-	NIDiscoveryConfigServiceAPI NIDiscoveryConfigServiceAPI
-	NIDiscoveryConfigServiceV2API NIDiscoveryConfigServiceV2API
-	NIJobConfigServiceAPI NIJobConfigServiceAPI
-	NgcConfigServiceAPI NgcConfigServiceAPI
+	ConfigurationServiceAPI          ConfigurationServiceAPI
+	DiscoveryConfigServiceAPI        DiscoveryConfigServiceAPI
+	JobConfigServiceAPI              JobConfigServiceAPI
+	NIDiscoveryConfigServiceAPI      NIDiscoveryConfigServiceAPI
+	NIDiscoveryConfigServiceV2API    NIDiscoveryConfigServiceV2API
+	NIJobConfigServiceAPI            NIJobConfigServiceAPI
+	NgcConfigServiceAPI              NgcConfigServiceAPI
 	PassiveDiscoveryConfigServiceAPI PassiveDiscoveryConfigServiceAPI
 }
 

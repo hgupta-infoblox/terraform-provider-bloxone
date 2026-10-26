@@ -19,7 +19,7 @@ var _ MappedNullable = &ServicePort{}
 
 // ServicePort struct for ServicePort
 type ServicePort struct {
-	Port *int32 `json:"port,omitempty"`
+	Port *int64 `json:"port,omitempty"`
 	// Service protocol correspond to one of TCP or UDP.
 	Protocol             *string `json:"protocol,omitempty"`
 	Service              *string `json:"service,omitempty"`
@@ -46,9 +46,9 @@ func NewServicePortWithDefaults() *ServicePort {
 }
 
 // GetPort returns the Port field value if set, zero value otherwise.
-func (o *ServicePort) GetPort() int32 {
+func (o *ServicePort) GetPort() int64 {
 	if o == nil || IsNil(o.Port) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Port
@@ -56,7 +56,7 @@ func (o *ServicePort) GetPort() int32 {
 
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ServicePort) GetPortOk() (*int32, bool) {
+func (o *ServicePort) GetPortOk() (*int64, bool) {
 	if o == nil || IsNil(o.Port) {
 		return nil, false
 	}
@@ -72,8 +72,8 @@ func (o *ServicePort) HasPort() bool {
 	return false
 }
 
-// SetPort gets a reference to the given int32 and assigns it to the Port field.
-func (o *ServicePort) SetPort(v int32) {
+// SetPort gets a reference to the given int64 and assigns it to the Port field.
+func (o *ServicePort) SetPort(v int64) {
 	o.Port = &v
 }
 

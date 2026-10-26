@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
+	"github.com/hashicorp/terraform-plugin-framework/types"
 
 	"github.com/infobloxopen/terraform-provider-bloxone/internal/flex"
 	"github.com/infobloxopen/terraform-provider-bloxone/internal/utils"
@@ -31,9 +32,8 @@ func (d *NIJobConfigServiceDataSource) Metadata(ctx context.Context, req datasou
 }
 
 type NIJobConfigModelWithFilter struct {
-	Filters    types.Map  `tfsdk:"filters"`
-	TagFilters types.Map  `tfsdk:"tag_filters"`
-	Results    types.List `tfsdk:"results"`
+	Filters types.Map  `tfsdk:"filters"`
+	Results types.List `tfsdk:"results"`
 }
 
 func (m *NIJobConfigModelWithFilter) FlattenResults(ctx context.Context, from []discoverycontroller.NIJobConfig, diags *diag.Diagnostics) {
@@ -49,11 +49,6 @@ func (d *NIJobConfigServiceDataSource) Schema(ctx context.Context, req datasourc
 		Attributes: map[string]schema.Attribute{
 			"filters": schema.MapAttribute{
 				Description: "Filter are used to return a more specific list of results. Filters can be used to match resources by specific attributes, e.g. name. If you specify multiple filters, the results returned will have only resources that match all the specified filters.",
-				ElementType: types.StringType,
-				Optional:    true,
-			},
-			"tag_filters": schema.MapAttribute{
-				Description: "Tag Filters are used to return a more specific list of results filtered by tags. If you specify multiple filters, the results returned will have only resources that match all the specified filters.",
 				ElementType: types.StringType,
 				Optional:    true,
 			},
@@ -102,7 +97,6 @@ func (d *NIJobConfigServiceDataSource) Read(ctx context.Context, req datasource.
 			NIJobConfigServiceAPI.
 			List(ctx).
 			Filter(flex.ExpandFrameworkMapFilterString(ctx, data.Filters, &resp.Diagnostics)).
-			Tfilter(flex.ExpandFrameworkMapFilterString(ctx, data.TagFilters, &resp.Diagnostics)).
 			Offset(offset).
 			Limit(limit).
 			Execute()

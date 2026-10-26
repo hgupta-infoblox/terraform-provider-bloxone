@@ -24,7 +24,7 @@ func TestAccNIJobConfigServiceResource_basic(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create and Read
 			{
-				Config: testAccNIJobConfigServiceBasicConfig(),
+				Config: testAccNIJobConfigServiceBasicConfig(""),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckNIJobConfigServiceExists(context.Background(), resourceName, &v),
 					// TODO: check and validate these
@@ -52,7 +52,7 @@ func TestAccNIJobConfigServiceResource_disappears(t *testing.T) {
 		CheckDestroy:             testAccCheckNIJobConfigServiceDestroy(context.Background(), &v),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNIJobConfigServiceBasicConfig(),
+				Config: testAccNIJobConfigServiceBasicConfig(""),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckNIJobConfigServiceExists(context.Background(), resourceName, &v),
 					testAccCheckNIJobConfigServiceDisappears(context.Background(), &v),
@@ -307,11 +307,12 @@ func testAccCheckNIJobConfigServiceDestroy(ctx context.Context, v *discoverycont
 }
 
 func testAccCheckNIJobConfigServiceDisappears(ctx context.Context, v *discoverycontroller.NIJobConfig) resource.TestCheckFunc {
-	// Delete the resource externally to verify disappears test
+	// NIJobConfigService has no Delete endpoint. Deleting the parent discovery_configuration
+	// cascades and removes this ni_job_config along with it, simulating an out-of-band delete.
 	return func(state *terraform.State) error {
 		_, err := acctest.BloxOneClient.DiscoveryControllerAPI.
-			NIJobConfigServiceAPI.
-			Delete(ctx, *v.Id).
+			ConfigurationServiceAPI.
+			Delete(ctx, *v.ConfigId).
 			Execute()
 		if err != nil {
 			return err

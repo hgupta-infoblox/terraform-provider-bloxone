@@ -44,7 +44,7 @@ func TestAccNIJobConfigServiceDataSource_TagFilters(t *testing.T) {
 		CheckDestroy:             testAccCheckNIJobConfigServiceDestroy(context.Background(), &v),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNIJobConfigServiceDataSourceConfigTagFilters(, "value1"),
+				Config: testAccNIJobConfigServiceDataSourceConfigTagFilters("value1"),
 				Check: resource.ComposeTestCheckFunc(
 					append([]resource.TestCheckFunc{
 							testAccCheckNIJobConfigServiceExists(context.Background(), resourceName, &v),

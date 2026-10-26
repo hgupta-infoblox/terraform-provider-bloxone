@@ -20,11 +20,11 @@ var _ MappedNullable = &ApiPageInfo{}
 // ApiPageInfo PageInfo represents both server-driven and client-driven pagination response. Server-driven pagination is a model in which the server returns some amount of data along with an token indicating there is more data and where subsequent queries can get the next page of data. Client-driven pagination is a model in which rows are addressable by offset and page size (limit).
 type ApiPageInfo struct {
 	// The service may optionally include the offset of the next page of resources. A null value indicates no more pages.
-	Offset *int32 `json:"offset,omitempty"`
+	Offset *int64 `json:"offset,omitempty"`
 	// The service response should contain a string to indicate the next page of resources. A null value indicates no more pages.
 	PageToken *string `json:"page_token,omitempty"`
 	// The service may optionally include the total number of resources being paged.
-	Size                 *int32 `json:"size,omitempty"`
+	Size                 *int64 `json:"size,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -48,9 +48,9 @@ func NewApiPageInfoWithDefaults() *ApiPageInfo {
 }
 
 // GetOffset returns the Offset field value if set, zero value otherwise.
-func (o *ApiPageInfo) GetOffset() int32 {
+func (o *ApiPageInfo) GetOffset() int64 {
 	if o == nil || IsNil(o.Offset) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Offset
@@ -58,7 +58,7 @@ func (o *ApiPageInfo) GetOffset() int32 {
 
 // GetOffsetOk returns a tuple with the Offset field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiPageInfo) GetOffsetOk() (*int32, bool) {
+func (o *ApiPageInfo) GetOffsetOk() (*int64, bool) {
 	if o == nil || IsNil(o.Offset) {
 		return nil, false
 	}
@@ -74,8 +74,8 @@ func (o *ApiPageInfo) HasOffset() bool {
 	return false
 }
 
-// SetOffset gets a reference to the given int32 and assigns it to the Offset field.
-func (o *ApiPageInfo) SetOffset(v int32) {
+// SetOffset gets a reference to the given int64 and assigns it to the Offset field.
+func (o *ApiPageInfo) SetOffset(v int64) {
 	o.Offset = &v
 }
 
@@ -112,9 +112,9 @@ func (o *ApiPageInfo) SetPageToken(v string) {
 }
 
 // GetSize returns the Size field value if set, zero value otherwise.
-func (o *ApiPageInfo) GetSize() int32 {
+func (o *ApiPageInfo) GetSize() int64 {
 	if o == nil || IsNil(o.Size) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Size
@@ -122,7 +122,7 @@ func (o *ApiPageInfo) GetSize() int32 {
 
 // GetSizeOk returns a tuple with the Size field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiPageInfo) GetSizeOk() (*int32, bool) {
+func (o *ApiPageInfo) GetSizeOk() (*int64, bool) {
 	if o == nil || IsNil(o.Size) {
 		return nil, false
 	}
@@ -138,8 +138,8 @@ func (o *ApiPageInfo) HasSize() bool {
 	return false
 }
 
-// SetSize gets a reference to the given int32 and assigns it to the Size field.
-func (o *ApiPageInfo) SetSize(v int32) {
+// SetSize gets a reference to the given int64 and assigns it to the Size field.
+func (o *ApiPageInfo) SetSize(v int64) {
 	o.Size = &v
 }
 

@@ -20,27 +20,27 @@ var _ MappedNullable = &AdvancedSettings{}
 // AdvancedSettings struct for AdvancedSettings
 type AdvancedSettings struct {
 	// Number of MAC addresses.
-	ArpAggregateLimit *int32 `json:"arp_aggregate_limit,omitempty"`
+	ArpAggregateLimit *int64 `json:"arp_aggregate_limit,omitempty"`
 	// ARP Cache Refresh in seconds or minutes.
-	ArpCacheRefreshPeriod *int32 `json:"arp_cache_refresh_period,omitempty"`
+	ArpCacheRefreshPeriod *int64 `json:"arp_cache_refresh_period,omitempty"`
 	// Days after which expired device data needs to be purged.
-	DeviceExpirationDays *int32 `json:"device_expiration_days,omitempty"`
+	DeviceExpirationDays *int64 `json:"device_expiration_days,omitempty"`
 	// Specify whether to perform a DNS lookup when discovering the devices. Valid values are: * _disable_   : Turn off DNS lookup when discovering the devices. * _infraonly_ : Collect hostnames for the network devices using DNS lookup. * _all_       : Collect hostnames for network devices (switches and routers) and end host devices using DNS lookup.
 	DnsLookupOptions *string `json:"dns_lookup_options,omitempty"`
 	// DNS Lookup Throttle. This is the value in percentage that throttles the traffic on the DNS server.
-	DnsLookupThrottle *int32 `json:"dns_lookup_throttle,omitempty"`
+	DnsLookupThrottle *int64 `json:"dns_lookup_throttle,omitempty"`
 	// Days after which expired assets data needs to be purged.
-	EndHostExpirationDays *int32 `json:"end_host_expiration_days,omitempty"`
+	EndHostExpirationDays *int64 `json:"end_host_expiration_days,omitempty"`
 	// Ping Sweep Attempts.
-	PingRetries *int32 `json:"ping_retries,omitempty"`
+	PingRetries *int64 `json:"ping_retries,omitempty"`
 	// Ping Sweep Frequency in days or hours.
-	PingSweepFrequency *int32 `json:"ping_sweep_frequency,omitempty"`
+	PingSweepFrequency *int64 `json:"ping_sweep_frequency,omitempty"`
 	// Ping Sweep timeout limit in seconds.
-	PingTimeout *int32 `json:"ping_timeout,omitempty"`
+	PingTimeout *int64 `json:"ping_timeout,omitempty"`
 	// Controls the Port Scanning for the discovered devices.  Valid values are: * _enabled_: Enables the port scanning for the services specified in the Service Ports. * _disabled_: Disables the port scanning for the services specified in the Service Ports.
 	PortScanningEnabled *bool `json:"port_scanning_enabled,omitempty"`
 	// number of routes that can be configured in the discovery.
-	RouteLimit *int32 `json:"route_limit,omitempty"`
+	RouteLimit *int64 `json:"route_limit,omitempty"`
 	// Authenticate and poll using one of these versions of the SNMP protocol. Valid values are: * _snmpv1_  : Use SNMPV1 protocol. * _snmpv2c_ : Use SNMPV2C protocol.
 	SnmpDiscoveryVersion *string `json:"snmp_discovery_version,omitempty"`
 	// Version of SNMP protocol for credential discovery and device polling. Valid values are: * _disabled_ : Exclusively use SNMPv2c and up. Do not fallback to SNMPV1. * _enabled_  : Support fallback to SNMPv1, if SNMPV2C and up are not available.
@@ -70,9 +70,9 @@ func NewAdvancedSettingsWithDefaults() *AdvancedSettings {
 }
 
 // GetArpAggregateLimit returns the ArpAggregateLimit field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetArpAggregateLimit() int32 {
+func (o *AdvancedSettings) GetArpAggregateLimit() int64 {
 	if o == nil || IsNil(o.ArpAggregateLimit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ArpAggregateLimit
@@ -80,7 +80,7 @@ func (o *AdvancedSettings) GetArpAggregateLimit() int32 {
 
 // GetArpAggregateLimitOk returns a tuple with the ArpAggregateLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetArpAggregateLimitOk() (*int32, bool) {
+func (o *AdvancedSettings) GetArpAggregateLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.ArpAggregateLimit) {
 		return nil, false
 	}
@@ -96,15 +96,15 @@ func (o *AdvancedSettings) HasArpAggregateLimit() bool {
 	return false
 }
 
-// SetArpAggregateLimit gets a reference to the given int32 and assigns it to the ArpAggregateLimit field.
-func (o *AdvancedSettings) SetArpAggregateLimit(v int32) {
+// SetArpAggregateLimit gets a reference to the given int64 and assigns it to the ArpAggregateLimit field.
+func (o *AdvancedSettings) SetArpAggregateLimit(v int64) {
 	o.ArpAggregateLimit = &v
 }
 
 // GetArpCacheRefreshPeriod returns the ArpCacheRefreshPeriod field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetArpCacheRefreshPeriod() int32 {
+func (o *AdvancedSettings) GetArpCacheRefreshPeriod() int64 {
 	if o == nil || IsNil(o.ArpCacheRefreshPeriod) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ArpCacheRefreshPeriod
@@ -112,7 +112,7 @@ func (o *AdvancedSettings) GetArpCacheRefreshPeriod() int32 {
 
 // GetArpCacheRefreshPeriodOk returns a tuple with the ArpCacheRefreshPeriod field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetArpCacheRefreshPeriodOk() (*int32, bool) {
+func (o *AdvancedSettings) GetArpCacheRefreshPeriodOk() (*int64, bool) {
 	if o == nil || IsNil(o.ArpCacheRefreshPeriod) {
 		return nil, false
 	}
@@ -128,15 +128,15 @@ func (o *AdvancedSettings) HasArpCacheRefreshPeriod() bool {
 	return false
 }
 
-// SetArpCacheRefreshPeriod gets a reference to the given int32 and assigns it to the ArpCacheRefreshPeriod field.
-func (o *AdvancedSettings) SetArpCacheRefreshPeriod(v int32) {
+// SetArpCacheRefreshPeriod gets a reference to the given int64 and assigns it to the ArpCacheRefreshPeriod field.
+func (o *AdvancedSettings) SetArpCacheRefreshPeriod(v int64) {
 	o.ArpCacheRefreshPeriod = &v
 }
 
 // GetDeviceExpirationDays returns the DeviceExpirationDays field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetDeviceExpirationDays() int32 {
+func (o *AdvancedSettings) GetDeviceExpirationDays() int64 {
 	if o == nil || IsNil(o.DeviceExpirationDays) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DeviceExpirationDays
@@ -144,7 +144,7 @@ func (o *AdvancedSettings) GetDeviceExpirationDays() int32 {
 
 // GetDeviceExpirationDaysOk returns a tuple with the DeviceExpirationDays field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetDeviceExpirationDaysOk() (*int32, bool) {
+func (o *AdvancedSettings) GetDeviceExpirationDaysOk() (*int64, bool) {
 	if o == nil || IsNil(o.DeviceExpirationDays) {
 		return nil, false
 	}
@@ -160,8 +160,8 @@ func (o *AdvancedSettings) HasDeviceExpirationDays() bool {
 	return false
 }
 
-// SetDeviceExpirationDays gets a reference to the given int32 and assigns it to the DeviceExpirationDays field.
-func (o *AdvancedSettings) SetDeviceExpirationDays(v int32) {
+// SetDeviceExpirationDays gets a reference to the given int64 and assigns it to the DeviceExpirationDays field.
+func (o *AdvancedSettings) SetDeviceExpirationDays(v int64) {
 	o.DeviceExpirationDays = &v
 }
 
@@ -198,9 +198,9 @@ func (o *AdvancedSettings) SetDnsLookupOptions(v string) {
 }
 
 // GetDnsLookupThrottle returns the DnsLookupThrottle field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetDnsLookupThrottle() int32 {
+func (o *AdvancedSettings) GetDnsLookupThrottle() int64 {
 	if o == nil || IsNil(o.DnsLookupThrottle) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DnsLookupThrottle
@@ -208,7 +208,7 @@ func (o *AdvancedSettings) GetDnsLookupThrottle() int32 {
 
 // GetDnsLookupThrottleOk returns a tuple with the DnsLookupThrottle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetDnsLookupThrottleOk() (*int32, bool) {
+func (o *AdvancedSettings) GetDnsLookupThrottleOk() (*int64, bool) {
 	if o == nil || IsNil(o.DnsLookupThrottle) {
 		return nil, false
 	}
@@ -224,15 +224,15 @@ func (o *AdvancedSettings) HasDnsLookupThrottle() bool {
 	return false
 }
 
-// SetDnsLookupThrottle gets a reference to the given int32 and assigns it to the DnsLookupThrottle field.
-func (o *AdvancedSettings) SetDnsLookupThrottle(v int32) {
+// SetDnsLookupThrottle gets a reference to the given int64 and assigns it to the DnsLookupThrottle field.
+func (o *AdvancedSettings) SetDnsLookupThrottle(v int64) {
 	o.DnsLookupThrottle = &v
 }
 
 // GetEndHostExpirationDays returns the EndHostExpirationDays field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetEndHostExpirationDays() int32 {
+func (o *AdvancedSettings) GetEndHostExpirationDays() int64 {
 	if o == nil || IsNil(o.EndHostExpirationDays) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EndHostExpirationDays
@@ -240,7 +240,7 @@ func (o *AdvancedSettings) GetEndHostExpirationDays() int32 {
 
 // GetEndHostExpirationDaysOk returns a tuple with the EndHostExpirationDays field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetEndHostExpirationDaysOk() (*int32, bool) {
+func (o *AdvancedSettings) GetEndHostExpirationDaysOk() (*int64, bool) {
 	if o == nil || IsNil(o.EndHostExpirationDays) {
 		return nil, false
 	}
@@ -256,15 +256,15 @@ func (o *AdvancedSettings) HasEndHostExpirationDays() bool {
 	return false
 }
 
-// SetEndHostExpirationDays gets a reference to the given int32 and assigns it to the EndHostExpirationDays field.
-func (o *AdvancedSettings) SetEndHostExpirationDays(v int32) {
+// SetEndHostExpirationDays gets a reference to the given int64 and assigns it to the EndHostExpirationDays field.
+func (o *AdvancedSettings) SetEndHostExpirationDays(v int64) {
 	o.EndHostExpirationDays = &v
 }
 
 // GetPingRetries returns the PingRetries field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetPingRetries() int32 {
+func (o *AdvancedSettings) GetPingRetries() int64 {
 	if o == nil || IsNil(o.PingRetries) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PingRetries
@@ -272,7 +272,7 @@ func (o *AdvancedSettings) GetPingRetries() int32 {
 
 // GetPingRetriesOk returns a tuple with the PingRetries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetPingRetriesOk() (*int32, bool) {
+func (o *AdvancedSettings) GetPingRetriesOk() (*int64, bool) {
 	if o == nil || IsNil(o.PingRetries) {
 		return nil, false
 	}
@@ -288,15 +288,15 @@ func (o *AdvancedSettings) HasPingRetries() bool {
 	return false
 }
 
-// SetPingRetries gets a reference to the given int32 and assigns it to the PingRetries field.
-func (o *AdvancedSettings) SetPingRetries(v int32) {
+// SetPingRetries gets a reference to the given int64 and assigns it to the PingRetries field.
+func (o *AdvancedSettings) SetPingRetries(v int64) {
 	o.PingRetries = &v
 }
 
 // GetPingSweepFrequency returns the PingSweepFrequency field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetPingSweepFrequency() int32 {
+func (o *AdvancedSettings) GetPingSweepFrequency() int64 {
 	if o == nil || IsNil(o.PingSweepFrequency) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PingSweepFrequency
@@ -304,7 +304,7 @@ func (o *AdvancedSettings) GetPingSweepFrequency() int32 {
 
 // GetPingSweepFrequencyOk returns a tuple with the PingSweepFrequency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetPingSweepFrequencyOk() (*int32, bool) {
+func (o *AdvancedSettings) GetPingSweepFrequencyOk() (*int64, bool) {
 	if o == nil || IsNil(o.PingSweepFrequency) {
 		return nil, false
 	}
@@ -320,15 +320,15 @@ func (o *AdvancedSettings) HasPingSweepFrequency() bool {
 	return false
 }
 
-// SetPingSweepFrequency gets a reference to the given int32 and assigns it to the PingSweepFrequency field.
-func (o *AdvancedSettings) SetPingSweepFrequency(v int32) {
+// SetPingSweepFrequency gets a reference to the given int64 and assigns it to the PingSweepFrequency field.
+func (o *AdvancedSettings) SetPingSweepFrequency(v int64) {
 	o.PingSweepFrequency = &v
 }
 
 // GetPingTimeout returns the PingTimeout field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetPingTimeout() int32 {
+func (o *AdvancedSettings) GetPingTimeout() int64 {
 	if o == nil || IsNil(o.PingTimeout) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PingTimeout
@@ -336,7 +336,7 @@ func (o *AdvancedSettings) GetPingTimeout() int32 {
 
 // GetPingTimeoutOk returns a tuple with the PingTimeout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetPingTimeoutOk() (*int32, bool) {
+func (o *AdvancedSettings) GetPingTimeoutOk() (*int64, bool) {
 	if o == nil || IsNil(o.PingTimeout) {
 		return nil, false
 	}
@@ -352,8 +352,8 @@ func (o *AdvancedSettings) HasPingTimeout() bool {
 	return false
 }
 
-// SetPingTimeout gets a reference to the given int32 and assigns it to the PingTimeout field.
-func (o *AdvancedSettings) SetPingTimeout(v int32) {
+// SetPingTimeout gets a reference to the given int64 and assigns it to the PingTimeout field.
+func (o *AdvancedSettings) SetPingTimeout(v int64) {
 	o.PingTimeout = &v
 }
 
@@ -390,9 +390,9 @@ func (o *AdvancedSettings) SetPortScanningEnabled(v bool) {
 }
 
 // GetRouteLimit returns the RouteLimit field value if set, zero value otherwise.
-func (o *AdvancedSettings) GetRouteLimit() int32 {
+func (o *AdvancedSettings) GetRouteLimit() int64 {
 	if o == nil || IsNil(o.RouteLimit) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.RouteLimit
@@ -400,7 +400,7 @@ func (o *AdvancedSettings) GetRouteLimit() int32 {
 
 // GetRouteLimitOk returns a tuple with the RouteLimit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AdvancedSettings) GetRouteLimitOk() (*int32, bool) {
+func (o *AdvancedSettings) GetRouteLimitOk() (*int64, bool) {
 	if o == nil || IsNil(o.RouteLimit) {
 		return nil, false
 	}
@@ -416,8 +416,8 @@ func (o *AdvancedSettings) HasRouteLimit() bool {
 	return false
 }
 
-// SetRouteLimit gets a reference to the given int32 and assigns it to the RouteLimit field.
-func (o *AdvancedSettings) SetRouteLimit(v int32) {
+// SetRouteLimit gets a reference to the given int64 and assigns it to the RouteLimit field.
+func (o *AdvancedSettings) SetRouteLimit(v int64) {
 	o.RouteLimit = &v
 }
 

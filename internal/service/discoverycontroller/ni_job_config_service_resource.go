@@ -68,7 +68,7 @@ func (r *NIJobConfigServiceResource) Create(ctx context.Context, req resource.Cr
 
 	apiRes, _, err := r.client.DiscoveryControllerAPI.
 		NIJobConfigServiceAPI.
-		Create(ctx).
+		Create(ctx, data.ConfigId.ValueString()).
 		Body(*data.Expand(ctx, &resp.Diagnostics)).
 		Execute()
 	if err != nil {
@@ -95,7 +95,7 @@ func (r *NIJobConfigServiceResource) Read(ctx context.Context, req resource.Read
 
 	apiRes, httpRes, err := r.client.DiscoveryControllerAPI.
 		NIJobConfigServiceAPI.
-		Read(ctx, data.Id.ValueString()).
+		Read(ctx, data.ConfigId.ValueString()).
 		Execute()
 	if err != nil {
 		if httpRes != nil && httpRes.StatusCode == http.StatusNotFound {
@@ -125,7 +125,7 @@ func (r *NIJobConfigServiceResource) Update(ctx context.Context, req resource.Up
 
 	apiRes, _, err := r.client.DiscoveryControllerAPI.
 		NIJobConfigServiceAPI.
-		Update(ctx, data.Id.ValueString()).
+		Update(ctx, data.ConfigId.ValueString()).
 		Body(*data.Expand(ctx, &resp.Diagnostics)).
 		Execute()
 	if err != nil {
@@ -150,17 +150,9 @@ func (r *NIJobConfigServiceResource) Delete(ctx context.Context, req resource.De
 		return
 	}
 
-	httpRes, err := r.client.DiscoveryControllerAPI.
-		NIJobConfigServiceAPI.
-		Delete(ctx, data.Id.ValueString()).
-		Execute()
-	if err != nil {
-		if httpRes != nil && httpRes.StatusCode == http.StatusNotFound {
-			return
-		}
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete NIJobConfigService, got error: %s", err))
-		return
-	}
+	// NIJobConfigService has no Delete endpoint. Deleting the parent discovery_configuration
+	// cascades and removes this ni_job_config along with it.
+	resp.State.RemoveResource(ctx)
 }
 
 func (r *NIJobConfigServiceResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {

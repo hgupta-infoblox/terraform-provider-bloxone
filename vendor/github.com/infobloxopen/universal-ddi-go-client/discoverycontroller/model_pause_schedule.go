@@ -20,10 +20,10 @@ var _ MappedNullable = &PauseSchedule{}
 // PauseSchedule The __PauseSchedule__ object represents blackout window when the discovery scan on the associated host should be paused
 type PauseSchedule struct {
 	// The time of the day in minutes that indicates the end of the blackout window.
-	EndTime *int32 `json:"end_time,omitempty"`
+	EndTime *int64 `json:"end_time,omitempty"`
 	// The time of the day in minutes that indicates the start of the blackout window.
-	StartTime            *int32 `json:"start_time,omitempty"`
-	Weekday              *int32 `json:"weekday,omitempty"`
+	StartTime            *int64 `json:"start_time,omitempty"`
+	Weekday              *int64 `json:"weekday,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -47,9 +47,9 @@ func NewPauseScheduleWithDefaults() *PauseSchedule {
 }
 
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
-func (o *PauseSchedule) GetEndTime() int32 {
+func (o *PauseSchedule) GetEndTime() int64 {
 	if o == nil || IsNil(o.EndTime) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EndTime
@@ -57,7 +57,7 @@ func (o *PauseSchedule) GetEndTime() int32 {
 
 // GetEndTimeOk returns a tuple with the EndTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PauseSchedule) GetEndTimeOk() (*int32, bool) {
+func (o *PauseSchedule) GetEndTimeOk() (*int64, bool) {
 	if o == nil || IsNil(o.EndTime) {
 		return nil, false
 	}
@@ -73,15 +73,15 @@ func (o *PauseSchedule) HasEndTime() bool {
 	return false
 }
 
-// SetEndTime gets a reference to the given int32 and assigns it to the EndTime field.
-func (o *PauseSchedule) SetEndTime(v int32) {
+// SetEndTime gets a reference to the given int64 and assigns it to the EndTime field.
+func (o *PauseSchedule) SetEndTime(v int64) {
 	o.EndTime = &v
 }
 
 // GetStartTime returns the StartTime field value if set, zero value otherwise.
-func (o *PauseSchedule) GetStartTime() int32 {
+func (o *PauseSchedule) GetStartTime() int64 {
 	if o == nil || IsNil(o.StartTime) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.StartTime
@@ -89,7 +89,7 @@ func (o *PauseSchedule) GetStartTime() int32 {
 
 // GetStartTimeOk returns a tuple with the StartTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PauseSchedule) GetStartTimeOk() (*int32, bool) {
+func (o *PauseSchedule) GetStartTimeOk() (*int64, bool) {
 	if o == nil || IsNil(o.StartTime) {
 		return nil, false
 	}
@@ -105,15 +105,15 @@ func (o *PauseSchedule) HasStartTime() bool {
 	return false
 }
 
-// SetStartTime gets a reference to the given int32 and assigns it to the StartTime field.
-func (o *PauseSchedule) SetStartTime(v int32) {
+// SetStartTime gets a reference to the given int64 and assigns it to the StartTime field.
+func (o *PauseSchedule) SetStartTime(v int64) {
 	o.StartTime = &v
 }
 
 // GetWeekday returns the Weekday field value if set, zero value otherwise.
-func (o *PauseSchedule) GetWeekday() int32 {
+func (o *PauseSchedule) GetWeekday() int64 {
 	if o == nil || IsNil(o.Weekday) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Weekday
@@ -121,7 +121,7 @@ func (o *PauseSchedule) GetWeekday() int32 {
 
 // GetWeekdayOk returns a tuple with the Weekday field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PauseSchedule) GetWeekdayOk() (*int32, bool) {
+func (o *PauseSchedule) GetWeekdayOk() (*int64, bool) {
 	if o == nil || IsNil(o.Weekday) {
 		return nil, false
 	}
@@ -137,8 +137,8 @@ func (o *PauseSchedule) HasWeekday() bool {
 	return false
 }
 
-// SetWeekday gets a reference to the given int32 and assigns it to the Weekday field.
-func (o *PauseSchedule) SetWeekday(v int32) {
+// SetWeekday gets a reference to the given int64 and assigns it to the Weekday field.
+func (o *PauseSchedule) SetWeekday(v int64) {
 	o.Weekday = &v
 }
 

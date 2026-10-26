@@ -26,8 +26,8 @@ type NetworkPolling struct {
 	// Instructs whether data collection for discovery is to be carried out using CLI.
 	CliCollection *bool `json:"cli_collection,omitempty"`
 	// When true, enables NetBios Scanning.
-	NetBiosScanning          *bool    `json:"net_bios_scanning,omitempty"`
-	PollingFrequencyModifier *float32 `json:"polling_frequency_modifier,omitempty"`
+	NetBiosScanning          *bool  `json:"net_bios_scanning,omitempty"`
+	PollingFrequencyModifier *int64 `json:"polling_frequency_modifier,omitempty"`
 	// Instructs whether to perform Route collection using SNMP or CLI.
 	RouteCollectionPriority *string `json:"route_collection_priority,omitempty"`
 	// Instructs whether data collection for discovery is to be carried out during a Smart Subnet Ping Sweep.
@@ -185,9 +185,9 @@ func (o *NetworkPolling) SetNetBiosScanning(v bool) {
 }
 
 // GetPollingFrequencyModifier returns the PollingFrequencyModifier field value if set, zero value otherwise.
-func (o *NetworkPolling) GetPollingFrequencyModifier() float32 {
+func (o *NetworkPolling) GetPollingFrequencyModifier() int64 {
 	if o == nil || IsNil(o.PollingFrequencyModifier) {
-		var ret float32
+		var ret int64
 		return ret
 	}
 	return *o.PollingFrequencyModifier
@@ -195,7 +195,7 @@ func (o *NetworkPolling) GetPollingFrequencyModifier() float32 {
 
 // GetPollingFrequencyModifierOk returns a tuple with the PollingFrequencyModifier field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NetworkPolling) GetPollingFrequencyModifierOk() (*float32, bool) {
+func (o *NetworkPolling) GetPollingFrequencyModifierOk() (*int64, bool) {
 	if o == nil || IsNil(o.PollingFrequencyModifier) {
 		return nil, false
 	}
@@ -211,8 +211,8 @@ func (o *NetworkPolling) HasPollingFrequencyModifier() bool {
 	return false
 }
 
-// SetPollingFrequencyModifier gets a reference to the given float32 and assigns it to the PollingFrequencyModifier field.
-func (o *NetworkPolling) SetPollingFrequencyModifier(v float32) {
+// SetPollingFrequencyModifier gets a reference to the given int64 and assigns it to the PollingFrequencyModifier field.
+func (o *NetworkPolling) SetPollingFrequencyModifier(v int64) {
 	o.PollingFrequencyModifier = &v
 }
 

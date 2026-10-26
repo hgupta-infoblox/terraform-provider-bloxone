@@ -21,7 +21,7 @@ var _ MappedNullable = &SDNPollingSettings{}
 type SDNPollingSettings struct {
 	DefaultSdnVirtualNetwork      *string `json:"default_sdn_virtual_network,omitempty"`
 	EndHostPollingEnabled         *bool   `json:"end_host_polling_enabled,omitempty"`
-	EndHostPollingIntervalMinutes *int32  `json:"end_host_polling_interval_minutes,omitempty"`
+	EndHostPollingIntervalMinutes *int64  `json:"end_host_polling_interval_minutes,omitempty"`
 	SdnDiscovery                  *bool   `json:"sdn_discovery,omitempty"`
 	AdditionalProperties          map[string]interface{}
 }
@@ -110,9 +110,9 @@ func (o *SDNPollingSettings) SetEndHostPollingEnabled(v bool) {
 }
 
 // GetEndHostPollingIntervalMinutes returns the EndHostPollingIntervalMinutes field value if set, zero value otherwise.
-func (o *SDNPollingSettings) GetEndHostPollingIntervalMinutes() int32 {
+func (o *SDNPollingSettings) GetEndHostPollingIntervalMinutes() int64 {
 	if o == nil || IsNil(o.EndHostPollingIntervalMinutes) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.EndHostPollingIntervalMinutes
@@ -120,7 +120,7 @@ func (o *SDNPollingSettings) GetEndHostPollingIntervalMinutes() int32 {
 
 // GetEndHostPollingIntervalMinutesOk returns a tuple with the EndHostPollingIntervalMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SDNPollingSettings) GetEndHostPollingIntervalMinutesOk() (*int32, bool) {
+func (o *SDNPollingSettings) GetEndHostPollingIntervalMinutesOk() (*int64, bool) {
 	if o == nil || IsNil(o.EndHostPollingIntervalMinutes) {
 		return nil, false
 	}
@@ -136,8 +136,8 @@ func (o *SDNPollingSettings) HasEndHostPollingIntervalMinutes() bool {
 	return false
 }
 
-// SetEndHostPollingIntervalMinutes gets a reference to the given int32 and assigns it to the EndHostPollingIntervalMinutes field.
-func (o *SDNPollingSettings) SetEndHostPollingIntervalMinutes(v int32) {
+// SetEndHostPollingIntervalMinutes gets a reference to the given int64 and assigns it to the EndHostPollingIntervalMinutes field.
+func (o *SDNPollingSettings) SetEndHostPollingIntervalMinutes(v int64) {
 	o.EndHostPollingIntervalMinutes = &v
 }
 

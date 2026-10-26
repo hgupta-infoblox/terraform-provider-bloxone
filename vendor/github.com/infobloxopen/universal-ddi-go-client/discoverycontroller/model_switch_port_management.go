@@ -21,7 +21,7 @@ var _ MappedNullable = &SwitchPortManagement{}
 type SwitchPortManagement struct {
 	Enabled *bool `json:"enabled,omitempty"`
 	// Polling interval in minutes.
-	PollingInterval *int32 `json:"polling_interval,omitempty"`
+	PollingInterval *int64 `json:"polling_interval,omitempty"`
 	// Port control preference corresponds to one of SNMP or CLI.
 	PortControlPreference *string `json:"port_control_preference,omitempty"`
 	AdditionalProperties  map[string]interface{}
@@ -79,9 +79,9 @@ func (o *SwitchPortManagement) SetEnabled(v bool) {
 }
 
 // GetPollingInterval returns the PollingInterval field value if set, zero value otherwise.
-func (o *SwitchPortManagement) GetPollingInterval() int32 {
+func (o *SwitchPortManagement) GetPollingInterval() int64 {
 	if o == nil || IsNil(o.PollingInterval) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.PollingInterval
@@ -89,7 +89,7 @@ func (o *SwitchPortManagement) GetPollingInterval() int32 {
 
 // GetPollingIntervalOk returns a tuple with the PollingInterval field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SwitchPortManagement) GetPollingIntervalOk() (*int32, bool) {
+func (o *SwitchPortManagement) GetPollingIntervalOk() (*int64, bool) {
 	if o == nil || IsNil(o.PollingInterval) {
 		return nil, false
 	}
@@ -105,8 +105,8 @@ func (o *SwitchPortManagement) HasPollingInterval() bool {
 	return false
 }
 
-// SetPollingInterval gets a reference to the given int32 and assigns it to the PollingInterval field.
-func (o *SwitchPortManagement) SetPollingInterval(v int32) {
+// SetPollingInterval gets a reference to the given int64 and assigns it to the PollingInterval field.
+func (o *SwitchPortManagement) SetPollingInterval(v int64) {
 	o.PollingInterval = &v
 }
 

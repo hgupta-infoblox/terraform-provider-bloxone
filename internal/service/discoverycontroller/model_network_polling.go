@@ -15,14 +15,14 @@ import (
 )
 
 type NetworkPollingModel struct {
-	ArpCollectionPriority    types.String  `tfsdk:"arp_collection_priority"`
-	AutoArpRefresh           types.Bool    `tfsdk:"auto_arp_refresh"`
-	CliCollection            types.Bool    `tfsdk:"cli_collection"`
-	NetBiosScanning          types.Bool    `tfsdk:"net_bios_scanning"`
-	PollingFrequencyModifier types.Float64 `tfsdk:"polling_frequency_modifier"`
-	RouteCollectionPriority  types.String  `tfsdk:"route_collection_priority"`
-	SmartSubnetPingSweep     types.Bool    `tfsdk:"smart_subnet_ping_sweep"`
-	SnmpCollection           types.Bool    `tfsdk:"snmp_collection"`
+	ArpCollectionPriority    types.String `tfsdk:"arp_collection_priority"`
+	AutoArpRefresh           types.Bool   `tfsdk:"auto_arp_refresh"`
+	CliCollection            types.Bool   `tfsdk:"cli_collection"`
+	NetBiosScanning          types.Bool   `tfsdk:"net_bios_scanning"`
+	PollingFrequencyModifier types.Int64  `tfsdk:"polling_frequency_modifier"`
+	RouteCollectionPriority  types.String `tfsdk:"route_collection_priority"`
+	SmartSubnetPingSweep     types.Bool   `tfsdk:"smart_subnet_ping_sweep"`
+	SnmpCollection           types.Bool   `tfsdk:"snmp_collection"`
 }
 
 var NetworkPollingAttrTypes = map[string]attr.Type{
@@ -30,7 +30,7 @@ var NetworkPollingAttrTypes = map[string]attr.Type{
 	"auto_arp_refresh":           types.BoolType,
 	"cli_collection":             types.BoolType,
 	"net_bios_scanning":          types.BoolType,
-	"polling_frequency_modifier": types.Float64Type,
+	"polling_frequency_modifier": types.Int64Type,
 	"route_collection_priority":  types.StringType,
 	"smart_subnet_ping_sweep":    types.BoolType,
 	"snmp_collection":            types.BoolType,
@@ -53,7 +53,7 @@ var NetworkPollingResourceSchemaAttributes = map[string]schema.Attribute{
 		Optional:            true,
 		MarkdownDescription: "When true, enables NetBios Scanning.",
 	},
-	"polling_frequency_modifier": schema.Float64Attribute{
+	"polling_frequency_modifier": schema.Int64Attribute{
 		Optional: true,
 	},
 	"route_collection_priority": schema.StringAttribute{
@@ -91,7 +91,7 @@ func (m *NetworkPollingModel) Expand(ctx context.Context, diags *diag.Diagnostic
 		AutoArpRefresh:           flex.ExpandBoolPointer(m.AutoArpRefresh),
 		CliCollection:            flex.ExpandBoolPointer(m.CliCollection),
 		NetBiosScanning:          flex.ExpandBoolPointer(m.NetBiosScanning),
-		PollingFrequencyModifier: flex.ExpandFloat64Pointer(m.PollingFrequencyModifier),
+		PollingFrequencyModifier: flex.ExpandInt64Pointer(m.PollingFrequencyModifier),
 		RouteCollectionPriority:  flex.ExpandStringPointer(m.RouteCollectionPriority),
 		SmartSubnetPingSweep:     flex.ExpandBoolPointer(m.SmartSubnetPingSweep),
 		SnmpCollection:           flex.ExpandBoolPointer(m.SnmpCollection),
@@ -121,7 +121,7 @@ func (m *NetworkPollingModel) Flatten(ctx context.Context, from *discoverycontro
 	m.AutoArpRefresh = types.BoolPointerValue(from.AutoArpRefresh)
 	m.CliCollection = types.BoolPointerValue(from.CliCollection)
 	m.NetBiosScanning = types.BoolPointerValue(from.NetBiosScanning)
-	m.PollingFrequencyModifier = flex.FlattenFloat64Pointer(from.PollingFrequencyModifier)
+	m.PollingFrequencyModifier = flex.FlattenInt64Pointer(from.PollingFrequencyModifier)
 	m.RouteCollectionPriority = flex.FlattenStringPointer(from.RouteCollectionPriority)
 	m.SmartSubnetPingSweep = types.BoolPointerValue(from.SmartSubnetPingSweep)
 	m.SnmpCollection = types.BoolPointerValue(from.SnmpCollection)
