@@ -18,7 +18,7 @@ import (
 // checks if the JobConfig type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &JobConfig{}
 
-// JobConfig **Deprecated** â€” The __JobConfig__ object represents the config options for the active discovery (NMAP) scan that would be running on a host. Active Discovery (NMAP) is deprecated; use NIJobConfig for new deployments.
+// JobConfig **Deprecated** - The __JobConfig__ object represents the config options for the active discovery (NMAP) scan that would be running on a host. Active Discovery (NMAP) is deprecated; use NIJobConfig for new deployments.
 type JobConfig struct {
 	// The resource identifier.
 	ConfigId *string `json:"config_id,omitempty"`

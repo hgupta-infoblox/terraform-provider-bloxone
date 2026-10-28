@@ -44,7 +44,7 @@ func TestAccConfigurationServiceDataSource_TagFilters(t *testing.T) {
 		CheckDestroy:             testAccCheckConfigurationServiceDestroy(context.Background(), &v),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccConfigurationServiceDataSourceConfigTagFilters(, "value1"),
+				Config: testAccConfigurationServiceDataSourceConfigTagFilters("value1"),
 				Check: resource.ComposeTestCheckFunc(
 					append([]resource.TestCheckFunc{
 							testAccCheckConfigurationServiceExists(context.Background(), resourceName, &v),

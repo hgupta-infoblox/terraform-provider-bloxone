@@ -40,7 +40,7 @@ type Configuration struct {
 	SourceId *string `json:"source_id,omitempty"`
 	// In case of NGC, it would be the grid name. The grid name can have conflicts for multiple grids in same account. So grid-name should be suffixed with last 4 chars of grid_id. Example: Infoblox-c35f This can be done only if name is default (Infoblox) In case of Active Discovery, it would be NMAP.
 	SourceName *string `json:"source_name,omitempty"`
-	// Required. Defines the source type for the configuration. Valid values are:  * _ngc_: NIOS Grid Connector source type.  * _active_: Active Discovery (NMAP) source type. **Deprecated** â€” retained for backwards compatibility only. Use _ni_ for new deployments.  * _ni_: Network Insight active discovery source type.  * _passive_: Passive Discovery source type.
+	// Required. Defines the source type for the configuration. Valid values are:  * _ngc_: NIOS Grid Connector source type.  * _active_: Active Discovery (NMAP) source type. **Deprecated** - retained for backwards compatibility only. Use _ni_ for new deployments.  * _ni_: Network Insight active discovery source type.  * _passive_: Passive Discovery source type.
 	SourceType *string `json:"source_type,omitempty"`
 	// Read-only. Timestamp updated_at, equals to time when particular object was updated, by default equals to created_at.
 	UpdatedAt            *time.Time `json:"updated_at,omitempty"`

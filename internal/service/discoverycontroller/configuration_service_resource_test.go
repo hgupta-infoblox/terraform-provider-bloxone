@@ -24,7 +24,7 @@ func TestAccConfigurationServiceResource_basic(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Create and Read
 			{
-				Config: testAccConfigurationServiceBasicConfig(),
+				Config: testAccConfigurationServiceBasicConfig(""),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckConfigurationServiceExists(context.Background(), resourceName, &v),
 					// TODO: check and validate these
@@ -50,7 +50,7 @@ func TestAccConfigurationServiceResource_disappears(t *testing.T) {
 		CheckDestroy:             testAccCheckConfigurationServiceDestroy(context.Background(), &v),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccConfigurationServiceBasicConfig(),
+				Config: testAccConfigurationServiceBasicConfig(""),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckConfigurationServiceExists(context.Background(), resourceName, &v),
 					testAccCheckConfigurationServiceDisappears(context.Background(), &v),

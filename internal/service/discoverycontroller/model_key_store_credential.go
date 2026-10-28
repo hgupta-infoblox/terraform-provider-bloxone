@@ -30,7 +30,7 @@ var KeyStoreCredentialAttrTypes = map[string]attr.Type{
 
 var KeyStoreCredentialResourceSchemaAttributes = map[string]schema.Attribute{
 	"id": schema.StringAttribute{
-		Computed: true,
+		Optional: true,
 	},
 	"name": schema.StringAttribute{
 		Computed: true,
@@ -62,7 +62,9 @@ func (m *KeyStoreCredentialModel) Expand(ctx context.Context, diags *diag.Diagno
 	if m == nil {
 		return nil
 	}
-	to := &discoverycontroller.KeyStoreCredential{}
+	to := &discoverycontroller.KeyStoreCredential{
+		Id: flex.ExpandStringPointer(m.Id),
+	}
 	return to
 }
 

@@ -89,7 +89,7 @@ var ConfigurationResourceSchemaAttributes = map[string]schema.Attribute{
 	},
 	"source_type": schema.StringAttribute{
 		Optional:            true,
-		MarkdownDescription: "Required. Defines the source type for the configuration. Valid values are:  * _ngc_: NIOS Grid Connector source type.  * _active_: Active Discovery (NMAP) source type. **Deprecated** â€” retained for backwards compatibility only. Use _ni_ for new deployments.  * _ni_: Network Insight active discovery source type.  * _passive_: Passive Discovery source type.",
+		MarkdownDescription: "Required. Defines the source type for the configuration. Valid values are:  * _ngc_: NIOS Grid Connector source type.  * _active_: Active Discovery (NMAP) source type. **Deprecated** - retained for backwards compatibility only. Use _ni_ for new deployments.  * _ni_: Network Insight active discovery source type.  * _passive_: Passive Discovery source type.",
 	},
 	"updated_at": schema.StringAttribute{
 		CustomType:          timetypes.RFC3339Type{},

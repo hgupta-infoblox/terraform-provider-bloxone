@@ -191,7 +191,7 @@ type NIJobConfigServiceAPIListRequest struct {
 	orderBy    *string
 }
 
-// A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a â€œflatâ€ resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.
+// A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a &#39;flat&#39; resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.
 func (r NIJobConfigServiceAPIListRequest) Fields(fields string) NIJobConfigServiceAPIListRequest {
 	r.fields = &fields
 	return r
@@ -338,7 +338,7 @@ type NIJobConfigServiceAPIReadRequest struct {
 	fields     *string
 }
 
-// A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a â€œflatâ€ resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.
+// A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a &#39;flat&#39; resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.
 func (r NIJobConfigServiceAPIReadRequest) Fields(fields string) NIJobConfigServiceAPIReadRequest {
 	r.fields = &fields
 	return r

@@ -41,7 +41,7 @@ type PassiveDiscoveryConfigServiceAPI interface {
 		@param source
 		@return PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request
 	*/
-	ListPassiveDiscoveryAccounts2(ctx context.Context, source interface{}) PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request
+	ListPassiveDiscoveryAccounts2(ctx context.Context, source string) PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request
 
 	// ListPassiveDiscoveryAccounts2Execute executes the request
 	//  @return ListPassiveDiscoveryAccountsResponse
@@ -184,7 +184,7 @@ func (a *PassiveDiscoveryConfigServiceAPIService) CreateExecute(r PassiveDiscove
 type PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request struct {
 	ctx        context.Context
 	ApiService PassiveDiscoveryConfigServiceAPI
-	source     interface{}
+	source     string
 }
 
 func (r PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request) Execute() (*ListPassiveDiscoveryAccountsResponse, *http.Response, error) {
@@ -198,7 +198,7 @@ ListPassiveDiscoveryAccounts2 List account by enabled source. Use this method to
 	@param source
 	@return PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request
 */
-func (a *PassiveDiscoveryConfigServiceAPIService) ListPassiveDiscoveryAccounts2(ctx context.Context, source interface{}) PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request {
+func (a *PassiveDiscoveryConfigServiceAPIService) ListPassiveDiscoveryAccounts2(ctx context.Context, source string) PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request {
 	return PassiveDiscoveryConfigServiceAPIListPassiveDiscoveryAccounts2Request{
 		ApiService: a,
 		ctx:        ctx,
@@ -283,7 +283,7 @@ type PassiveDiscoveryConfigServiceAPIReadRequest struct {
 	fields     *string
 }
 
-// A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a â€œflatâ€ resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.
+// A collection of response resources can be transformed by specifying a set of JSON tags to be returned. For a &#39;flat&#39; resource, the tag name is straightforward. If field selection is allowed on non-flat hierarchical resources, the service should implement a qualified naming scheme such as dot-qualification to reference data down the hierarchy. If a resource does not have the specified tag, the tag does not appear in the output resource.  Specify this parameter as a comma-separated list of JSON tag names.
 func (r PassiveDiscoveryConfigServiceAPIReadRequest) Fields(fields string) PassiveDiscoveryConfigServiceAPIReadRequest {
 	r.fields = &fields
 	return r

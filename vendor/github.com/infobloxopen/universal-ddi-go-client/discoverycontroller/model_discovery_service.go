@@ -18,7 +18,7 @@ import (
 // checks if the DiscoveryService type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DiscoveryService{}
 
-// DiscoveryService **Deprecated** â€” The __DiscoveryService__ object represents all the Active Discovery (NMAP) per-host service config options. Active Discovery (NMAP) is deprecated; use NIDiscoveryService for new deployments.
+// DiscoveryService **Deprecated** - The __DiscoveryService__ object represents all the Active Discovery (NMAP) per-host service config options. Active Discovery (NMAP) is deprecated; use NIDiscoveryService for new deployments.
 type DiscoveryService struct {
 	// Read-only. Timestamp created_at, equals to time when particular object was created.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
